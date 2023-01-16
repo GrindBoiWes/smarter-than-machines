@@ -11,18 +11,36 @@
     <div class="outside-container">
 
         <div class="high-timer">
-            <button>View High Scores</button>
-            <p>Timer: 00:00</p>
+            <button id="scores">View High Scores</button>
+            <p id="timer">Timer: 00:00</p>
         </div>
-
+    
         <div class="quiz-container">
 
             <header class="begin-quiz">
-
+                <h1>Welcome To The Quiz</h1>
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                <button id="start">Start Quiz!</button>>
             </header>
-            <main>
+        <main>
+            <div class="question">
+                <h2>Question Here</h2>
+                <ul>
+                    <li><button>Answer 1</button></li>
+                    <li><button>Answer 2</button></li>
+                    <li><button>Answer 3</button></li>
+                    <li><button>Answer 4</button></li>
+                </ul>
+            </div>
 
-            </main>
+            <div class="quiz-results">
+                <h2>Congrats!</h2>
+                <p>Your Score :00</p>
+                <label for="">Enter Initials:</label>
+                <input type="text">
+                <button>Submit</button>
+            </div>
+        </main>
         </div>
     </div>
 

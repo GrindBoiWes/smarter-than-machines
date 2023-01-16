@@ -12,15 +12,77 @@ body {
 
 .outside-container {
     padding:10px;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+
+.high-timer {
+    padding: 20px 20px;
 }
 
 .high-timer button {
     outline:none;
     background-color: aqua;
     padding:10px;
+    font-size:1.5em;
 }
 
 .high-timer p {
     float:right;
     color:azure;
+    font-size:1.5em;
+}
+
+.quiz-container {
+    height: 100vh;
+    background: #092737;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width:50%;
+}
+
+.begin-quiz {
+   
+}
+
+.begin-quiz h1 {
+    font-size: 3em;
+    color:azure;
+}
+
+.begin-quiz p {
+    font-size: 2em;
+    color:azure;
+    margin-top:3%;
+}
+
+.begin-quiz button {
+    outline:none;
+    background-color: aqua;
+    padding:10px;
+    font-size:1.5em;
+    margin-top:5%;
+}
+
+.questions {
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.quiz-results {
+    display:none;
 }
