@@ -46,7 +46,7 @@ body {
 }
 
 .begin-quiz {
-   
+   margin: 0 auto;
 }
 
 .begin-quiz h1 {
@@ -68,21 +68,7 @@ body {
     margin-top:5%;
 }
 
-.questions {
-    display:none;
+.hide {
+    display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.quiz-results {
-    display:none;
-}

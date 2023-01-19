@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./Develop/style.css">
+    <meta name="viewport" content="width=devide-width, inital-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Smarter Than Machines</title>
 </head>
   <body>
@@ -11,8 +12,8 @@
     <div class="outside-container">
 
         <div class="high-timer">
-            <button id="scores">View High Scores</button>
-            <p id="timer">Timer: 00:00</p>
+            <a href="highscores.html"><button id="scores">View High Scores</button></a>
+            <p id="timer">Timer: 00</p>
         </div>
     
         <div class="quiz-container">
@@ -20,38 +21,25 @@
             <header class="begin-quiz">
                 <h1>Welcome To The Quiz</h1>
                 <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-                <button id="start">Start Quiz!</button>>
+                <button id="start">Start Quiz!</button>
             </header>
         <main>
-            <div class="question">
-                <h2>Question Here</h2>
-                <ul>
-                    <li><button>Answer 1</button></li>
-                    <li><button>Answer 2</button></li>
-                    <li><button>Answer 3</button></li>
-                    <li><button>Answer 4</button></li>
-                </ul>
+            <div class="hide" id="quiz">
+                <h2 id="questions"></h2>
+                <div class="options" id="options"></div>
             </div>
 
-            <div class="quiz-results">
+            <div class="hide" id="quiz-results">
                 <h2>Congrats!</h2>
-                <p>Your Score :00</p>
+                <p>Your Score: <span id="final-score"></span></p>
                 <label for="">Enter Initials:</label>
-                <input type="text">
-                <button>Submit</button>
+                <input type="text" id="name">
+                <button id="submit-score">Submit</button>
             </div>
         </main>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
+    <div id ="feedback" class="feedback-hide"></div>
+  <script src="/script.js"></script>
   </body>
 </html>
