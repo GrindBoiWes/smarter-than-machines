@@ -34,7 +34,7 @@ var questions = [
 //Dom Elements
 
 var currentQuestionIndex = 0;
-
+var currentQuestion = questions[currentQuestionIndex];
 var quizEl = document.getElementById("quiz");
 var timerEl = document.getElementById("timer");
 var submitBtn = document.getElementById("submit-score");
@@ -52,16 +52,32 @@ function startQuiz() {
     var currentQuestion = questions[currentQuestionIndex];
     newQuestion.textContent = currentQuestion.title;
     answerBtn.textContent = currentQuestion.choices;
-    newQuestion.innerHTML = "";
-    answerBtn.innerHTML = "";
+    newQuestion.innerHTML = title;
+    answerBtn.innerHTML = choices;
 
     for (var i = 0; i < questions.length; i++) {
         newQuestion.textContent =  currentQuestion;
       }
-
+    getQuestions()
 };
 
+function getQuestions() {
+    var currentQuestion = questions[currentQuestionIndex];
+    newQuestion.textContent = currentQuestion.title;
+    answerBtn.textContent = currentQuestion.choices;
+    newQuestion.innerHTML = "";
+    
+    currentQuestion.choices.forEach(function(choice, i) {
+        var choiceNode = document.createElement("button");
+        choiceNode.classList.add("choices");
 
+        choiceNode.textContent = i + 1 + ". " + choice;
+    })
+
+    //for (var i = 0; i < questions.length; i++) {
+      //  newQuestion.textContent =  currentQuestion;
+     // }
+}
 
 function setTimer() {
     var timerEl = document.querySelector("#timer");
