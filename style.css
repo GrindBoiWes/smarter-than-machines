@@ -68,7 +68,32 @@ body {
     margin-top:5%;
 }
 
-.hide {
-    display: none;
+.quiz {
+    display:block; 
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width:50%;
+    height: 100vh;
+    background: #0a99e6;
 }
 
+.hide h2 {
+    font-size: 3em;
+    color:azure;
+}
+
+.btn-grid {
+    display:block;
+    width: auto;
+    font-size:1em;
+    padding:10px;
+    font-family:'Courier New', Courier, monospace;
+    color: white;
+    background-color: aqua;
+}
+
+.hide {
+    display: none;
+} 

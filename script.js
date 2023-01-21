@@ -2,101 +2,90 @@
 // List of questions and correct answers
 var questions = [
     {
-        question: "Arrays in Javascript can be used to store ___",
+        title: "Arrays in Javascript can be used to store ___",
         choices: ["a. Numbers and Strings", "b. Other Arrays", "c. Booleans", "d. All of the Above"],
         answer: "b. Other Arrays"
     },
 
     {
-        question: "Commonly used data types DO NOT include",
+        title: "Commonly used data types DO NOT include",
         choices: ["a. Strings", "b. Booleans", "c. Alerts", "d. Numbers"],
         answer: "c. Alerts"
     },
 
     {
-        question: "How do you write a comment in Javascript?",
+        title: "How do you write a comment in Javascript?",
         choices: ["a. //This is a comment", "b. <!--This is a comment-->", "c. *This is a comment", "d. 'This is a comment'"],
         answer: "a. //This is a comment"
     },
 
     {
-        question: "The first index of an array is _____",
+        title: "The first index of an array is _____",
         choices: ["a. 1", "b. 2", "c. 0", "d. None of the above"],
         answer: "c. 0"
     },
 
     {
-        question: "In javascript, which of the following is a logical operator?",
+        title: "In javascript, which of the following is a logical operator?",
         choices: ["a. ||", "b. &&", "c. $$", "d. @@"],
         answer: "b. &&"
     },
 ];
 //Dom Elements
 
-var questionsEL = document.querySelector("#questions");
-var timerEL = document.querySelector("#timer");
-var choicesEl = document.querySelector("#options");
-var submitBtn = document.querySelector("#submit-score");
-var startBtn = document.querySelector("#start");
-var nameEl = document.querySelector("#name");
-var feedbackEl = document.querySelector("#feedback");
-var restartBtn = document.querySelector("#restart");
-
-
-
-//quiz state variables
-startBtn.addEventListener('click', startQuiz());
-
 var currentQuestionIndex = 0;
-var secondsLeft = 75;
-var timerId;
+
+var quizEl = document.getElementById("quiz");
+var timerEl = document.getElementById("timer");
+var submitBtn = document.getElementById("submit-score");
+var startBtn = document.getElementById("start");
+var nameEl = document.getElementById("name");
+var feedbackEl = document.getElementById("feedback");
+var restartBtn = document.getElementById("restart");
+var answerBtn = document.getElementById("answer-buttons");
+var startQuizEl = document.getElementById("begin-quiz");
+var newQuestion = document.getElementById("questions");
+//Quiz state variables
 
 function startQuiz() {
     console.log('start');
-    timerId = setInterval(timerInterval, 1000);
-    timerEL.textContent = time;
-    var beginEl = document.getElementById("start");
-    beginEl.setAttribute("class", "hide");
-    questionsEl.removeAttribute("class");
-    getQuestions();
-}
-
-function getQuestions() {
     var currentQuestion = questions[currentQuestionIndex];
-    var questionEl = document.getElementById("questions");
-    questionEl.textContent = currentQuestion.prompt;
-    choicesEl.innerHTML = "";
+    newQuestion.textContent = currentQuestion.title;
+    answerBtn.textContent = currentQuestion.choices;
+    newQuestion.innerHTML = "";
+    answerBtn.innerHTML = "";
 
-    currentQuestion.choices.forEach(function(choice, i) {
-        var choiceBtn = document.createElement("button");
-        choiceBtn.setAttribute("class", choice);
-        choiceBtn.textContent = i + 1 + ". " + choice;
-        choiceBtn.onclick = questionClick;
-        choicesEl.appendChild(choiceBtn);
-
-    })     
+    for (var i = 0; i < questions.length; i++) {
+        newQuestion.textContent =  currentQuestion;
+      }
 
 };
 
+
+
 function setTimer() {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timerEL.textContent = "Time Remaining " + secondsLeft;
-
-        if (secondsLeft === 0){
-            clearInterval(timerInterval)
-            sendMessage();
-        }
-    }, 1000)
-}
-
-setTimer();
-
+    var timerEl = document.querySelector("#timer");
+    var secondsLeft = 75;
+        let timerInterval = setInterval(function() {
+            secondsLeft--;
+            timerEl.textContent = "Time Remaining " + secondsLeft;
+    
+            if (secondsLeft === 0){
+                clearInterval(timerInterval);
+            }
+        }, 1000)
+    };
 
 
 
+    startBtn.addEventListener('click', function() {
+        quizEl.classList.remove("hide");
+        startQuizEl.classList.add("hide");
+        setTimer()
+       startQuiz()
+    });
+    
+    // answerBtn.addEventListener("click ," function() {
 
-
-
-
-startBtn.onclick = startQuiz;
+    // }
+// );

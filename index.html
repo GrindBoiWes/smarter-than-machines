@@ -18,23 +18,25 @@
     
         <div class="quiz-container">
 
-            <header class="begin-quiz">
+            <header class="begin-quiz" id ="begin-quiz">
                 <h1>Welcome To The Quiz</h1>
                 <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
                 <button id="start">Start Quiz!</button>
             </header>
         <main>
-            <div class="hide" id="quiz">
-                <h2 id="questions"></h2>
-                <div class="options" id="options"></div>
-            </div>
-
-            <div class="hide" id="quiz-results">
+            <div class="quiz hide" id="quiz">
+              <h2 class = "questions" id="questions">Show Question Here</h2>
+              <button class = "btn-grid" id = "answer-buttons">Answer 1</button>
+              <button class = "btn-grid" id = "answer-buttons">Answer 2</button> 
+              <button class = "btn-grid" id = "answer-buttons">Answer 3</button> 
+              <button class = "btn-grid" id = "answer-buttons">Answer 4</button>  
+        </div>  
+            <div class="quiz-results hide" id="quiz-results">
                 <h2>Congrats!</h2>
                 <p>Your Score: <span id="final-score"></span></p>
                 <label for="">Enter Initials:</label>
                 <input type="text" id="name">
-                <button id="submit-score">Submit</button>
+                <button id="submit-score" class ="btn">Submit</button>
             </div>
         </main>
         </div>
