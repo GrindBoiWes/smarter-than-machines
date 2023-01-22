@@ -3,38 +3,39 @@
 var questions = [
     {
         title: "Arrays in Javascript can be used to store ___",
-        choices: ["a. Numbers and Strings", "b. Other Arrays", "c. Booleans", "d. All of the Above"],
-        answer: "b. Other Arrays"
+        choices: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
+        answer: "Other Arrays"
     },
 
     {
         title: "Commonly used data types DO NOT include",
-        choices: ["a. Strings", "b. Booleans", "c. Alerts", "d. Numbers"],
-        answer: "c. Alerts"
+        choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+        answer: "Alerts"
     },
 
     {
         title: "How do you write a comment in Javascript?",
-        choices: ["a. //This is a comment", "b. <!--This is a comment-->", "c. *This is a comment", "d. 'This is a comment'"],
-        answer: "a. //This is a comment"
+        choices: ["//This is a comment", "<!--This is a comment-->", " *This is a comment", "'This is a comment'"],
+        answer: "//This is a comment"
     },
 
     {
         title: "The first index of an array is _____",
-        choices: ["a. 1", "b. 2", "c. 0", "d. None of the above"],
-        answer: "c. 0"
+        choices: ["1", "2", "0", "None of the above"],
+        answer: "0"
     },
 
     {
         title: "In javascript, which of the following is a logical operator?",
-        choices: ["a. ||", "b. &&", "c. $$", "d. @@"],
-        answer: "b. &&"
+        choices: ["||", "&&", "$$", "@@"],
+        answer: "&&"
     },
 ];
 //Dom Elements
 
 var currentQuestionIndex = 0;
-var currentQuestion = questions[currentQuestionIndex];
+var secondsLeft = 75;
+
 var quizEl = document.getElementById("quiz");
 var timerEl = document.getElementById("timer");
 var submitBtn = document.getElementById("submit-score");
@@ -42,46 +43,80 @@ var startBtn = document.getElementById("start");
 var nameEl = document.getElementById("name");
 var feedbackEl = document.getElementById("feedback");
 var restartBtn = document.getElementById("restart");
-var answerBtn = document.getElementById("answer-buttons");
+var choicesEl = document.getElementById("choices");
 var startQuizEl = document.getElementById("begin-quiz");
-var newQuestion = document.getElementById("questions");
 //Quiz state variables
 
 function startQuiz() {
     console.log('start');
-    var currentQuestion = questions[currentQuestionIndex];
-    newQuestion.textContent = currentQuestion.title;
-    answerBtn.textContent = currentQuestion.choices;
-    newQuestion.innerHTML = title;
-    answerBtn.innerHTML = choices;
+    //var currentQuestion = questions[currentQuestionIndex];
+   // newQuestion.textContent = currentQuestion.title;
+   // answerBtn.textContent = questions.choices;
+   // newQuestion.innerHTML = title;
+    //answerBtn.innerHTML = choices;
 
-    for (var i = 0; i < questions.length; i++) {
-        newQuestion.textContent =  currentQuestion;
-      }
+    //currentQuestion.choices.forEach(function(choice, i) {
+       // var choiceNode = document.createElement("button");
+       // choiceNode.classList.add("btn-grid");
+
+    //for (var i = 0; i < questions.length; i++) {
+      // newQuestion.textContent =  currentQuestion.questions;
+    //  }
     getQuestions()
 };
 
 function getQuestions() {
-    var currentQuestion = questions[currentQuestionIndex];
+    var currentQuestion = questions[currentQuestionIndex]; 
+
+    var newQuestion = document.getElementById("questions");
     newQuestion.textContent = currentQuestion.title;
-    answerBtn.textContent = currentQuestion.choices;
-    newQuestion.innerHTML = "";
+    
+    choicesEl.innerHTML = "" ;
     
     currentQuestion.choices.forEach(function(choice, i) {
-        var choiceNode = document.createElement("button");
-        choiceNode.classList.add("choices");
+        var choiceBtn = document.createElement("button");
+        choiceBtn.setAttribute("class", "button");
+        choiceBtn.setAttribute("value", choice);
 
-        choiceNode.textContent = i + 1 + ". " + choice;
+       choiceBtn.textContent = i + 1 + ". " + choice;
+
+       choiceBtn.onclick = questionClick;
+       choicesEl.appendChild(choiceBtn);
     })
+    
+};
+function questionClick() {
+    if (this.value !== questions[currentQuestionIndex].answer) {
+        secondsLeft -= 15;
 
-    //for (var i = 0; i < questions.length; i++) {
-      //  newQuestion.textContent =  currentQuestion;
-     // }
+        if(secondsLeft < 0) {
+            secondsLeft = 0;
+        }
+        timerEl.textContent = secondsLeft;
+        feedbackEl.textContent = "Incorrect!"
+        feedbackEl.style.color = "maroon";
+        feedbackEl.style.fontSize = "250%";
+    } else {
+        feedbackEl.textContent = "Correct!";
+        feedbackEl.style.color = "purple";
+        feedbackEl.style.fontSize = "250%";
+    }
+    currentQuestionIndex++;
+
+    if(currentQuestionIndex = questions.length) {
+        quizEnd();
+    } else (
+        getQuestions()
+    )
+};
+function quizEnd() {
+    clearInterval(secondsLeft);
 }
+
 
 function setTimer() {
     var timerEl = document.querySelector("#timer");
-    var secondsLeft = 75;
+    var secondsLeft = questions.length * 15;
         let timerInterval = setInterval(function() {
             secondsLeft--;
             timerEl.textContent = "Time Remaining " + secondsLeft;
@@ -99,9 +134,7 @@ function setTimer() {
         startQuizEl.classList.add("hide");
         setTimer()
        startQuiz()
-    });
+    });    
     
-    // answerBtn.addEventListener("click ," function() {
-
-    // }
-// );
+    
+    
