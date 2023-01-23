@@ -10,13 +10,6 @@ body {
 }
 
 
-.outside-container {
-    padding:10px;
-    height: 100vh;
-    display:flex;
-    flex-direction: column;
-}
-
 .high-timer {
     padding: 20px 20px;
 }
@@ -35,7 +28,7 @@ body {
 }
 
 .quiz-container {
-    height: 100vh;
+    height: 500px;
     background: #092737;
     margin: 0 auto;
     display:flex;
@@ -68,7 +61,7 @@ body {
     margin-top:5%;
 }
 
-.quiz {
+#quiz {
     display:block; 
     margin: 0 auto;
     flex-direction: column;
@@ -76,8 +69,15 @@ body {
     justify-content: center;
     width:50%;
     height: 100vh;
+    padding: 10px 10px;
 }
-
+#questions {
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius:5px;
+    width: 100%;
+    padding: 10px 10px;
+}
 .hide h2 {
     font-size: 3em;
     color:azure;
@@ -96,9 +96,24 @@ body {
     display:block;
     padding : 10px;
     outline: none;
+    width: 400px;
     background-color: #1A3806;
-    font-size: 1.5em;
+    font-size: 40px;
 }
+.choices button {
+    display: block;
+    width: 100%;
+    margin: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    background-color: teal;
+    border-radius : 5px;
+    padding: 5px 10px;
+    color:white;
+    border: 0;
+    transition: background-color 0.2s;
+}
+
 .hide {
     display: none;
 } 
