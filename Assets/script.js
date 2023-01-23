@@ -50,7 +50,7 @@ function startQuiz() {
 
     quizEl.removeAttribute("class");
 
-    timerId = setInterval(clockTick, 1000);
+    timerId = setInterval(timeRem, 1000);
     timerEl.textContent = time;
 
     getQuestions();
@@ -115,10 +115,10 @@ function quizEnd() {
 
     var finalScore = document.getElementById("final-score");
     finalScore.textContent = time;
-    quizEl.setAttribute("class", "hide");
+    quizEl.style.display = "none";
 }
 
-function clockTick() {
+function timeRem() {
     time--;
     timerEl.textContent = "Time Remaining " + time;
 
@@ -129,7 +129,6 @@ function clockTick() {
 
 function saveHighscore() {
     var initials = initialsEl.value.trim();
-
     if (initials !== "") {
         var highscores = 
         JSON.parse(window.localStorage.getItem("highscores")) || [];
@@ -142,12 +141,12 @@ function saveHighscore() {
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-        window.location.href = "score.html";
+        window.location.href = "/score.html";
     }
 }
 
 function checkForEnter(event) {
-    if(event.key === "Enter") {
+    if (event.key === "Enter") {
         saveHighscore();
     }
 }
@@ -156,4 +155,4 @@ submitBtn.onclick = saveHighscore;
 
 startBtn.onclick = startQuiz;
 
-initialsEl.onkeyup = checkForEnter;
+initialsEl.onkeyup = checkForEnter();
