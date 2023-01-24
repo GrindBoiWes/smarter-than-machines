@@ -37,7 +37,7 @@ var timerEl = document.getElementById("timer");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit-score");
 var startBtn = document.getElementById("start");
-var initialsEl = document.getElementById("initials");
+var initialsEl = document.getElementById("name");
 var feedbackEl = document.getElementById("feedback");
 
 var currentQuestionIndex = 0;

@@ -71,19 +71,18 @@ body {
     height: 100vh;
     padding: 10px 10px;
 }
-/*#questions {
-    background-color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius:5px;
-    width: 100%;
-    padding: 10px 10px;
-}*/
+
+
+h1 {
+    color:white;
+}
+
 h2 {
     font-size: 2.5em;
     color:azure;
 }
 
-.button {
+.hide button {
     display:block;
     padding : 10px;
     outline: none;
@@ -116,7 +115,10 @@ h2 {
     padding-top:10px;
     border-top: 2px solid white;
 }
-
+p {
+    color: white;
+    font-size: 1.5em;
+}
 ol {
     padding-left: 0px;
     max-height: 350px;
@@ -125,4 +127,11 @@ ol {
 li {
     padding: 5px;
     list-style: decimal inside none;
+    color:white;
+    font-size: 1.5em;
+}
+
+.hsbutton {
+    display:inline-block;
+    
 }
