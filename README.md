@@ -10,8 +10,12 @@ Once all of the questions have been answered. You will be scored for the quiz. Y
 
 
 # Screenshots
-
-
+<img src = "./Assets/Images/STM1.png">
+<img src = "./Assets/Images/STM2.png">
+<img src = "./Assets/Images/STM3.png">
+<img src = "./Assets/Images/STM4.png">
+<img src = "./Assets/Images/STM5.png">
+<img src = "./Assets/Images/Smarter-Than-Machines.gif">
 
 
 
