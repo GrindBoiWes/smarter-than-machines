@@ -37,7 +37,7 @@ var timerEl = document.getElementById("timer");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit-score");
 var startBtn = document.getElementById("start");
-var initialsEl = document.getElementById("intials");
+var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 
 var currentQuestionIndex = 0;
@@ -127,7 +127,7 @@ function timeRem() {
     }
 }
 
-function saveHighscore() {
+function saveHighscore(event) {
     var initials = initialsEl.value.trim();
     if (initials !== "") {
         var highscores = 
@@ -155,4 +155,4 @@ submitBtn.onclick = saveHighscore;
 
 startBtn.onclick = startQuiz;
 
-initialsEl.onkeyup = checkForEnter();
+initialsEl.onkeyup = checkForEnter;
