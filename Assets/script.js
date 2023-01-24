@@ -156,7 +156,7 @@ function saveHighscore(event) {
     }
 }
 
-function checkForEnter(event) {\
+function checkForEnter(event) {
     // if user hits enter after submit, it will be read
     if (event.key === "Enter") {
         saveHighscore();
