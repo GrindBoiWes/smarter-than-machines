@@ -15,19 +15,19 @@
         </div>
     
         <div class="quiz-container">
-
+            <!--Displays the introduction to the quiz-->
             <div class="begin-quiz" id ="intro">
                 <h1>Welcome To The Quiz</h1>
                 <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by fifteen seconds!</p>
                 <button id="start">Start Quiz!</button>
             </div>
-        
+            <!---This section is the quiz itself, followed by the feedback of correct or incorrect upon answering questions-->
             <div class="hide" id="quiz">
               <h2 class = "questions" id="questions"></h2>
               <div class = "choices" id = "choices"></div>
               <div id ="feedback" class="feedback hide"></div>
            </div> 
-
+           <!---This is the high score area. Text will be input and then stored-->
             <div class="hide" id="quiz-results">
                 <h2>Congrats!</h2>
                 <p>Your Score: <span id="final-score"></span></p>
