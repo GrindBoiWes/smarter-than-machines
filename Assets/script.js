@@ -89,7 +89,7 @@ function questionClick() {
         if (time < 0) {
             time = 0;
         }
-    // This will display the new time on the screen
+    // This will display the new time on the screen and will let user know if answer was correct or incorrect
      timerEl.textContent = time;
      feedbackEl.textContent = "Incorrect!";
      feedbackEl.style.color = "red";
@@ -152,7 +152,7 @@ function saveHighscore(event) {
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
         // Takes user into highscore page
-        window.location.href = "/score.html";
+        window.location.href = "./score.html";
     }
 }
 

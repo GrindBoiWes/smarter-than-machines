@@ -130,8 +130,32 @@ li {
     color:white;
     font-size: 1.5em;
 }
-
 .hsbutton {
-    display:inline-block;
+    display: flex;
+    justify-content: center;
     
+}
+.hsbutton button{
+    display:flex;
+    padding : 10px;
+    outline: none;
+    width: 250px;
+    background-color: teal;
+    font-size: 20px;
+    justify-content: center;
+    color:white;
+}
+
+.hsbutton a {
+    text-decoration: none;
+}
+
+.hsbutton #clear {
+    color:white;
+    display:block;
+    padding : 10px;
+    outline: none;
+    width: 250px;
+    background-color: teal;
+    font-size: 20px;
 }
